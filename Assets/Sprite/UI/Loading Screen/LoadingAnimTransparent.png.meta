@@ -1,25 +1,76 @@
 fileFormatVersion: 2
-guid: 468a7b08747baa04e871a013d297772b
+guid: 4372942d03ce6d149b0285049efa6079
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1758953181161383650
-    second: Test Logo_0
+      213: 2379626287950512036
+    second: LoadingAnimTransparent_0
   - first:
-      213: -8163349619438782453
-    second: Test Logo_1
+      213: 4110902338953251527
+    second: LoadingAnimTransparent_1
   - first:
-      213: 20525086636297145
-    second: Test Logo_2
+      213: 5730725597999397292
+    second: LoadingAnimTransparent_2
   - first:
-      213: 3996524194569067001
-    second: Test Logo_3
+      213: 1960541267742218014
+    second: LoadingAnimTransparent_3
   - first:
-      213: -4226740344207751432
-    second: Test Logo_4
+      213: 7796072026749717832
+    second: LoadingAnimTransparent_4
   - first:
-      213: -7075878568016229970
-    second: Test Logo_5
+      213: -7789178798931836560
+    second: LoadingAnimTransparent_5
+  - first:
+      213: -3604242654485421295
+    second: LoadingAnimTransparent_6
+  - first:
+      213: -6129586623971683622
+    second: LoadingAnimTransparent_7
+  - first:
+      213: 1069121077054054940
+    second: LoadingAnimTransparent_8
+  - first:
+      213: 3953155686224328624
+    second: LoadingAnimTransparent_9
+  - first:
+      213: 3071192402140089200
+    second: LoadingAnimTransparent_10
+  - first:
+      213: 5144908081999342859
+    second: LoadingAnimTransparent_11
+  - first:
+      213: 7186712296489952600
+    second: LoadingAnimTransparent_12
+  - first:
+      213: -7497920695472486165
+    second: LoadingAnimTransparent_13
+  - first:
+      213: -5328452797605481936
+    second: LoadingAnimTransparent_14
+  - first:
+      213: 3496267330754998285
+    second: LoadingAnimTransparent_15
+  - first:
+      213: -6086770144918719813
+    second: LoadingAnimTransparent_16
+  - first:
+      213: -4384275905404125013
+    second: LoadingAnimTransparent_17
+  - first:
+      213: -7772984698553501117
+    second: LoadingAnimTransparent_18
+  - first:
+      213: 5845901464539895846
+    second: LoadingAnimTransparent_19
+  - first:
+      213: -3482304898483152231
+    second: LoadingAnimTransparent_20
+  - first:
+      213: -6922388519156385832
+    second: LoadingAnimTransparent_21
+  - first:
+      213: 4392304515023718959
+    second: LoadingAnimTransparent_22
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +103,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -62,13 +113,13 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 32
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -141,35 +192,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Test Logo_0
+      name: LoadingAnimTransparent_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 265
-        height: 60
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2e6eaa3599e096810800000000000000
-      internalID: 1758953181161383650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test Logo_1
-      rect:
-        serializedVersion: 2
-        x: 51
         y: 0
-        width: 10
-        height: 14
+        width: 800
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,86 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b08f70cb5c4f5be80800000000000000
-      internalID: -8163349619438782453
+      spriteID: 4afb8774081260120800000000000000
+      internalID: 2379626287950512036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Test Logo_2
+      name: LoadingAnimTransparent_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 3
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9bbc0f1257be84000800000000000000
-      internalID: 20525086636297145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test Logo_3
-      rect:
-        serializedVersion: 2
-        x: 81
-        y: 3
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9f91b899491867730800000000000000
-      internalID: 3996524194569067001
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test Logo_4
-      rect:
-        serializedVersion: 2
-        x: 101
-        y: 3
-        width: 10
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8f64fa91d0a9755c0800000000000000
-      internalID: -4226740344207751432
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Test Logo_5
-      rect:
-        serializedVersion: 2
-        x: 132
+        x: 800
         y: 0
-        width: 10
-        height: 14
+        width: 800
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,8 +229,96 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ea9c7979eed6dcd90800000000000000
-      internalID: -7075878568016229970
+      spriteID: 7ca81a395ebdc0930800000000000000
+      internalID: 4110902338953251527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoadingAnimTransparent_2
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 800
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9fdf59190a78f40800000000000000
+      internalID: 5730725597999397292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoadingAnimTransparent_3
+      rect:
+        serializedVersion: 2
+        x: 2400
+        y: 0
+        width: 800
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e17d44745ed353b10800000000000000
+      internalID: 1960541267742218014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoadingAnimTransparent_4
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 800
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84dc6c5f336313c60800000000000000
+      internalID: 7796072026749717832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LoadingAnimTransparent_5
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 0
+        width: 800
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0710aa5b62747e390800000000000000
+      internalID: -7789178798931836560
       vertices: []
       indices: 
       edges: []
@@ -276,7 +327,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 66876799c549afa4aa1eab1afd6bdc22
     internalID: 0
     vertices: []
     indices: 
@@ -284,8 +335,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
-    nameFileIdTable: {}
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":6.0,"y":1.0},"gridSpriteSize":{"x":800.0,"y":600.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+      - key: SpriteEditor.SliceOnImport
+        value: False
+    nameFileIdTable:
+      LoadingAnimTransparent_0: 2379626287950512036
+      LoadingAnimTransparent_1: 4110902338953251527
+      LoadingAnimTransparent_2: 5730725597999397292
+      LoadingAnimTransparent_3: 1960541267742218014
+      LoadingAnimTransparent_4: 7796072026749717832
+      LoadingAnimTransparent_5: -7789178798931836560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
