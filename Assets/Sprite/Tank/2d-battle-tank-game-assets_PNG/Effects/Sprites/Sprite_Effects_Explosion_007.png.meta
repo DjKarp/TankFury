@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -61,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -276,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sprite_Effects_Explosion_007_0: -5029082541352844958
+      Sprite_Effects_Explosion_007_1: -9150166647597543538
+      Sprite_Effects_Explosion_007_2: 6569116374178126075
+      Sprite_Effects_Explosion_007_3: 9200317538566540301
+      Sprite_Effects_Explosion_007_4: 5326086849278906961
+      Sprite_Effects_Explosion_007_5: -3720932171820538219
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

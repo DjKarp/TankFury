@@ -67,7 +67,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -76,7 +76,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -401,7 +401,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -410,7 +410,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Boats_only_water3_frame3_0: 6701381486923203927
+      Boats_only_water3_frame3_1: 2339869786834539775
+      Boats_only_water3_frame3_10: -8202470159235696569
+      Boats_only_water3_frame3_2: -5577959964797483006
+      Boats_only_water3_frame3_3: -6928118263840424085
+      Boats_only_water3_frame3_4: -5978707702562623611
+      Boats_only_water3_frame3_5: 277596519315470162
+      Boats_only_water3_frame3_6: 3697673020765480807
+      Boats_only_water3_frame3_7: -4311322090227876820
+      Boats_only_water3_frame3_8: 3339979706532723984
+      Boats_only_water3_frame3_9: -3844846703457056379
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
