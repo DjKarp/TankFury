@@ -9,7 +9,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>TankFury</RootNamespace>
     <ProjectGuid>{5C68F9BA-FCAE-3F5E-000D-2D17DB7A6B47}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -64,11 +64,18 @@
     <Compile Include="Assets\Scripts\EntryPoint\SceneEnterParams.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\SceneExitParams.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameplayEntryPoint.cs" />
+    <Compile Include="Assets\Scripts\UI\SettingsUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameEntryPoint.cs" />
+    <Compile Include="Assets\Scripts\Installers\UIInstaller.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenuUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\Scenes.cs" />
+    <Compile Include="Assets\Scripts\Data\CollectionPrefabUI.cs" />
     <Compile Include="Assets\Scripts\UI\EntryPoint\RootUI.cs" />
+    <Compile Include="Assets\Scripts\UI\UIwindow.cs" />
     <Compile Include="Assets\Scripts\Util\CorutinesInScene.cs" />
-    <Compile Include="Assets\Scripts\UI\GameplayRootUI.cs" />
+    <Compile Include="Assets\Scripts\UI\GameplayUIwindow.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseUIwindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Buttons\ExitButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -592,6 +599,10 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Data\Managed\UnityEngine\UnityEditor.XRModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Collections.LowLevel.ILSupport">
       <HintPath>Library\PackageCache\com.unity.collections@56bff8827a7e\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
@@ -604,8 +615,16 @@
       <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.ComponentModel.Annotations">
       <HintPath>Assets\Packages\System.ComponentModel.Annotations.5.0.0\lib\netstandard2.1\System.ComponentModel.Annotations.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DOTween">
@@ -622,6 +641,10 @@
     </Reference>
     <Reference Include="R3">
       <HintPath>Assets\Packages\R3.1.3.0\lib\netstandard2.1\R3.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
@@ -642,6 +665,10 @@
     </Reference>
     <Reference Include="Microsoft.Bcl.TimeProvider">
       <HintPath>Assets\Packages\Microsoft.Bcl.TimeProvider.8.0.0\lib\netstandard2.0\Microsoft.Bcl.TimeProvider.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Android.Types">
@@ -1410,9 +1437,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
+      <Project>{2ABCE99D-F68E-0C4F-7804-E5422E78C719}</Project>
+      <Name>Zenject-ReflectionBaking-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-Editor.csproj">
+      <Project>{033BA2CF-1995-E789-C2E0-DA2D779C1ACA}</Project>
+      <Name>Zenject-Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
+      <Project>{B960F6E8-12E4-3118-7D78-EDBD3DD44FEB}</Project>
+      <Name>Zenject-PoolMonitor-Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="DOTween.Modules.csproj">
       <Project>{140E3982-8C55-69C9-9B32-01AB78F52673}</Project>
       <Name>DOTween.Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{21E109AB-E5E7-2E19-3992-32D342140E67}</Project>
+      <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

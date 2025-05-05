@@ -1,21 +1,31 @@
 using UnityEngine;
 using R3;
+using Zenject;
 
-public class GameplayEntryPoint : MonoBehaviour
+namespace TankFury
 {
-    [SerializeField] private GameplayRootUI _gameplayRootUI_prefab;
-    private GameplayRootUI _gameplayRootUI;
-
-    public void Run(RootUI rootUI, SceneEnterParams sceneEnterParams)
+    public class GameplayEntryPoint : MonoBehaviour
     {
-        _gameplayRootUI = Instantiate(_gameplayRootUI_prefab);
-        rootUI.AttachUI(_gameplayRootUI.gameObject);
+        private RootUI _rootUI;
 
-        Init();
-    }
+        private CollectionPrefabUI _collectionPrefabUI;
 
-    private void Init()
-    {
+        [Inject]
+        public void Construct(CollectionPrefabUI collectionPrefabUI)
+        {
+            _collectionPrefabUI = collectionPrefabUI;
+        }
 
+        public void Run(RootUI rootUI, SceneEnterParams sceneEnterParams = null)
+        {
+            _rootUI = rootUI;
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            _collectionPrefabUI.Init();
+            _rootUI.Init(_collectionPrefabUI);
+        }
     }
 }

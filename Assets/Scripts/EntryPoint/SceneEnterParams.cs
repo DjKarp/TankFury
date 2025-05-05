@@ -1,14 +1,15 @@
-using UnityEngine;
-
-public class SceneEnterParams
+namespace TankFury
 {
-    public int _levelNumber { get; }
-    public int _diffeculty { get; }
-
-    public SceneExitParams _SceneExitParams;
-
-    public SceneEnterParams(SceneExitParams sceneExitParams)
+    public class SceneEnterParams
     {
-        _SceneExitParams = sceneExitParams;
-    }        
+        public int _levelNumber { get; }
+        public int _diffeculty { get; }
+
+        public SceneExitParams _SceneExitParams;
+
+        public SceneEnterParams(SceneExitParams sceneExitParams)
+        {
+            _SceneExitParams = sceneExitParams;
+        }
+    }
 }

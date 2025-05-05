@@ -1,7 +1,8 @@
-using UnityEngine;
-
-public class Scenes
+namespace TankFury
 {
-    public static string Scene_Game = "Gameplay";
-    public static string Scene_Bootstrap = "Bootstrap";
+    public class Scenes
+    {
+        public static string Scene_Game = "Gameplay";
+        public static string Scene_Bootstrap = "Bootstrap";
+    }
 }
