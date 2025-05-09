@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using R3;
 using Zenject;
+using UnityEngine.UI;
+using DG.Tweening;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace TankFury
 {
@@ -10,8 +14,11 @@ namespace TankFury
         [SerializeField] private Transform _sceneConteinerUI;
         public Transform SceneConteinerUI { get => _sceneConteinerUI; }
 
+        [SerializeField] private Image _backgroundImage;
+        private Tween _tween;
+
+        private Stack<UIwindow> _currentWindowUIList = new Stack<UIwindow>();
         private UIwindow _currentWindowUI;
-        private UIwindow _previousWindowUI;
 
         private GameplayUIwindow _gameplayUIwindow;        
         private SettingsUIwindow _settingsUIwindow;
@@ -42,26 +49,29 @@ namespace TankFury
             _pauseUIwindow.Init(this);
 
             _currentWindowUI = _mainMenuUIwindow;
+            _backgroundImage.enabled = false;
             AttachUI(_currentWindowUI.gameObject);
         }
 
         public void ChangeWindowUIonPrevious()
         {
-            ChangeWindowUI(_previousWindowUI);
+            ChangeWindowUI(_currentWindowUIList.Pop(), true);
         }
 
-        public void ChangeWindowUI(UIwindow uIwindow)
+        public void ChangeWindowUI(UIwindow uIwindow, bool isPrevious = false)
         {
-            _currentWindowUI?.Hide();
+            if (!isPrevious)
+                _currentWindowUIList.Push(_currentWindowUI);
+
+            _currentWindowUI = uIwindow;
+            _currentWindowUI?.Hide();            
+            _backgroundImage.enabled = uIwindow != _gameplayUIwindow;
             StartCoroutine(AddedNewWindowUI(uIwindow));
         }
 
         private IEnumerator AddedNewWindowUI(UIwindow uIwindow)
         {
             yield return new WaitForSeconds(uIwindow.DurationHideShow);
-
-            _previousWindowUI = _currentWindowUI;
-            _currentWindowUI = uIwindow;
             AttachUI(uIwindow.gameObject);
         }
 
@@ -78,7 +88,12 @@ namespace TankFury
 
             sceneUI_GO.transform.SetParent(_sceneConteinerUI, false);
             sceneUI_GO.gameObject.SetActive(true);
-            _currentWindowUI.Show();
+            _currentWindowUI?.Show();
+        }
+
+        private void OnDisable()
+        {
+            _tween.Kill(true);
         }
     }
 }

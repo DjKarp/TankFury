@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneConteinerUI: {fileID: 7995280469136204275}
+  _backgroundImage: {fileID: 1064945634514767399}
 --- !u!1 &6021930378201224167
 GameObject:
   m_ObjectHideFlags: 0
