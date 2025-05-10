@@ -19,36 +19,43 @@ namespace TankFury
 
         private Stack<UIwindow> _currentWindowUIList = new Stack<UIwindow>();
         private UIwindow _currentWindowUI;
+        private UIwindow[] _uIwindows = new UIwindow[5];
 
-        private GameplayUIwindow _gameplayUIwindow;        
-        private SettingsUIwindow _settingsUIwindow;
-        private MainMenuUIwindow _mainMenuUIwindow;
-        private PauseUIwindow _pauseUIwindow;
-
-        public GameplayUIwindow GameplayUIwindow { get => _gameplayUIwindow; }
-        public SettingsUIwindow SettingsUIwindow { get => _settingsUIwindow; }
-        public MainMenuUIwindow MainMenuUIwindow { get => _mainMenuUIwindow; }
-        public PauseUIwindow PauseUIwindow { get => _pauseUIwindow; }
+        public MainMenuUIwindow MainMenuUIwindow { get => (MainMenuUIwindow)_uIwindows[0]; }
+        public SettingsUIwindow SettingsUIwindow { get => (SettingsUIwindow)_uIwindows[1]; }
+        public GameplayUIwindow GameplayUIwindow { get => (GameplayUIwindow)_uIwindows[2]; }
+        public PauseUIwindow PauseUIwindow { get => (PauseUIwindow)_uIwindows[3]; }
+        public DialogUIwindow DialogUIwindow { get => (DialogUIwindow)_uIwindows[4]; }
 
         private CollectionPrefabUI _collectionPrefabUI;
+        private DialogSystem _dialogSystem;
+
+        [Inject]
+        public void Construct(DialogSystem dialogSystem)
+        {
+            _dialogSystem = dialogSystem;
+        }
 
         public void Init(CollectionPrefabUI collectionPrefabUI)
         {
             _collectionPrefabUI = collectionPrefabUI;
 
-            _mainMenuUIwindow = Instantiate(_collectionPrefabUI.MainMenuUIwindow, SceneConteinerUI);
-            _mainMenuUIwindow.Init(this);
+            for (int i = 0; i < _collectionPrefabUI.UiwindowList.Count; i++)
+            {
+                _uIwindows[i] = Instantiate(_collectionPrefabUI.UiwindowList[i], SceneConteinerUI);
+                _uIwindows[i].Init(this);
+                if (_uIwindows[i].GetType().ToString() == "GameplayUIwindow")
+                {
+                    GameplayUIwindow gameUI = (GameplayUIwindow)_uIwindows[i];
+                    gameUI.Construct(_dialogSystem);
+                }
+                else if (_uIwindows[i].GetType().ToString() == "DialogUIwindow")
+                {
+                    _dialogSystem.Init((DialogUIwindow)_uIwindows[i]);
+                }
+            }
 
-            _gameplayUIwindow = Instantiate(_collectionPrefabUI.GameplayUIwindow, SceneConteinerUI);
-            _gameplayUIwindow.Init(this);
-
-            _settingsUIwindow = Instantiate(_collectionPrefabUI.SettingsUIwindow, SceneConteinerUI);
-            _settingsUIwindow.Init(this);
-
-            _pauseUIwindow = Instantiate(_collectionPrefabUI.PauseUIwindow, SceneConteinerUI);
-            _pauseUIwindow.Init(this);
-
-            _currentWindowUI = _mainMenuUIwindow;
+            _currentWindowUI = MainMenuUIwindow;
             _backgroundImage.enabled = false;
             AttachUI(_currentWindowUI.gameObject);
         }
@@ -65,7 +72,7 @@ namespace TankFury
 
             _currentWindowUI = uIwindow;
             _currentWindowUI?.Hide();            
-            _backgroundImage.enabled = uIwindow != _gameplayUIwindow;
+            _backgroundImage.enabled = uIwindow != GameplayUIwindow;
             StartCoroutine(AddedNewWindowUI(uIwindow));
         }
 

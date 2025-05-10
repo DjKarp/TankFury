@@ -18,6 +18,8 @@ namespace TankFury
         public virtual void Init()
         {
             _canvasGroup = gameObject.GetComponent<CanvasGroup>();
+            if (_canvasGroup == null)
+                _canvasGroup = gameObject.AddComponent<CanvasGroup>();
             Hide();
         }
 

@@ -64,10 +64,12 @@
     <Compile Include="Assets\Scripts\EntryPoint\SceneEnterParams.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\SceneExitParams.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameplayEntryPoint.cs" />
+    <Compile Include="Assets\Scripts\Dialog\DialogSystem.cs" />
     <Compile Include="Assets\Scripts\UI\SettingsUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameEntryPoint.cs" />
     <Compile Include="Assets\Scripts\Installers\UIInstaller.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuUIwindow.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\Scenes.cs" />
     <Compile Include="Assets\Scripts\Data\CollectionPrefabUI.cs" />
     <Compile Include="Assets\Scripts\UI\EntryPoint\RootUI.cs" />

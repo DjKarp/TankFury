@@ -9,12 +9,22 @@ namespace TankFury
         [SerializeField] private Button _menuButton;
         [SerializeField] private Button _pauseButton;
 
+        private DialogSystem _dialogSystem;
+
+        [Inject]
+        public void Construct(DialogSystem dialogSystem)
+        {
+            _dialogSystem = dialogSystem;
+        }
+
         public override void Init()
         {
             base.Init();
 
             _menuButton.onClick.AddListener(() => MenuButtonClick());
             _pauseButton.onClick.AddListener(() => PauseButtonClick());
+
+            _dialogSystem?.CheckShowDialogWindow();
         }
 
         private void MenuButtonClick()

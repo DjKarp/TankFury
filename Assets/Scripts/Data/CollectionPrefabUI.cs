@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace TankFury
@@ -8,8 +9,11 @@ namespace TankFury
         public SettingsUIwindow SettingsUIwindow { get; private set; }
         public GameplayUIwindow GameplayUIwindow { get; private set; }
         public PauseUIwindow PauseUIwindow { get; private set; }
+        public DialogUIwindow DialogUIwindow { get; private set; }
 
         public GameObject LoadingUI { get; private set; }
+
+        public List<UIwindow> UiwindowList = new List<UIwindow>();
 
 
         public void Init()
@@ -18,7 +22,11 @@ namespace TankFury
             SettingsUIwindow = Resources.Load<SettingsUIwindow>("SettingsUI");
             GameplayUIwindow = Resources.Load<GameplayUIwindow>("GameplayUI");
             PauseUIwindow = Resources.Load<PauseUIwindow>("PauseUI");
-            LoadingUI = Resources.Load<GameObject>("LoadingUI");
+            DialogUIwindow = Resources.Load<DialogUIwindow>("DialogUI");
+
+            UiwindowList = new List<UIwindow> { MainMenuUIwindow, SettingsUIwindow, GameplayUIwindow, PauseUIwindow, DialogUIwindow };
+
+            LoadingUI = Resources.Load<GameObject>("LoadingUI");            
         }
     }
 }

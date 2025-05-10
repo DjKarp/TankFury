@@ -8,6 +8,7 @@ namespace TankFury
         public override void InstallBindings()
         {
             Container.Bind<CollectionPrefabUI>().FromNew().AsSingle();
+            Container.Bind<DialogSystem>().FromNew().AsSingle();
         }
     }
 }
