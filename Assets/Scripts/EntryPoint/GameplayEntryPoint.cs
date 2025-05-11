@@ -9,6 +9,7 @@ namespace TankFury
         private RootUI _rootUI;
 
         private CollectionPrefabUI _collectionPrefabUI;
+        private DialogSystem _dialogSystem;
 
         [Inject]
         public void Construct(CollectionPrefabUI collectionPrefabUI)
@@ -25,7 +26,8 @@ namespace TankFury
         private void Initialize()
         {
             _collectionPrefabUI.Init();
-            _rootUI.Init(_collectionPrefabUI);
+            _dialogSystem = new DialogSystem();
+            _rootUI.Init(_collectionPrefabUI, _dialogSystem);
         }
     }
 }

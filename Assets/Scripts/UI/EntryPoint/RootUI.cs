@@ -30,15 +30,11 @@ namespace TankFury
         private CollectionPrefabUI _collectionPrefabUI;
         private DialogSystem _dialogSystem;
 
-        [Inject]
-        public void Construct(DialogSystem dialogSystem)
-        {
-            _dialogSystem = dialogSystem;
-        }
 
-        public void Init(CollectionPrefabUI collectionPrefabUI)
+        public void Init(CollectionPrefabUI collectionPrefabUI, DialogSystem dialogSystem)
         {
             _collectionPrefabUI = collectionPrefabUI;
+            _dialogSystem = dialogSystem;
 
             for (int i = 0; i < _collectionPrefabUI.UiwindowList.Count; i++)
             {
