@@ -11,11 +11,14 @@ namespace TankFury
         private float _moveMaxSpeed;
         private float _currentMoveSpeed;
         private float _acceleration;
+        private float _rotateSpeed;
+        private bool _isReverse = false;
 
         private InputHandler _input;
         private Vector2 _inputDirection;
+        private Vector3 _newPosition;
 
-        private bool _startStopGame = false;
+        private bool _isGamePlayOn = false;
         private SignalBus _signalBus;
 
 
@@ -25,13 +28,14 @@ namespace TankFury
             _input = input;
 
             _signalBus = signalBus;
-            _signalBus.Subscribe<PlayPauseGameSignal>(() => _startStopGame = !_startStopGame);
+            _signalBus.Subscribe<PlayPauseGameSignal>(StartSropMove);
         }
 
         public void Start()
         {
-            _moveMaxSpeed = _tankConfig.MaxSpeed;
-            _acceleration = _tankConfig.TimeAcceleration;
+            _moveMaxSpeed = _tankConfig.MoveMaxSpeed;
+            _acceleration = _tankConfig.Acceleration;
+            _rotateSpeed = _tankConfig.RotateSpeed;
             _currentMoveSpeed = 0.0f;
 
             _transform = gameObject.transform;
@@ -39,39 +43,51 @@ namespace TankFury
 
         private void Update()
         {
-            if (_startStopGame)
+            if (_isGamePlayOn)
+            {
+                _inputDirection = _input.GetMoveDirection();                
+                NewRotation();
                 NewPosition();
+            }
         }
-
+        public void NewRotation()
+        {
+            if (_inputDirection.x != 0.0f)
+            {
+                _transform.rotation = Quaternion.RotateTowards(_transform.rotation, _transform.rotation * Quaternion.Euler(0, 0, (_inputDirection.x >= 0 ? -90.0f : 90.0f)), _rotateSpeed * Time.deltaTime);
+            }
+        }
 
         public void NewPosition()
         {
-            Debug.LogError("Move");
+            if (_inputDirection.y != 0.0f)
+                _isReverse = _inputDirection.y < 0.0f;
 
-            _inputDirection = _input.GetMoveDirection();
-
-            if (_inputDirection == Vector2.zero)
+            if (_inputDirection.y == 0.0f && _currentMoveSpeed != 0)
             {
-                _currentMoveSpeed = 0;
-                _transform.position = _transform.position;
+                _currentMoveSpeed = Mathf.Clamp(_currentMoveSpeed - (_acceleration * 2.0f * Time.deltaTime), 0.0f, _moveMaxSpeed);
             }
-            else
+            else if (_inputDirection.y != 0.0f)
             {
-                _currentMoveSpeed = Mathf.Clamp(_currentMoveSpeed + (_acceleration * Time.deltaTime), 0.0f, _moveMaxSpeed);
-
-                Vector2 position = _transform.position;
-                _transform.position = position + (_inputDirection * _currentMoveSpeed * Time.deltaTime);
+                _currentMoveSpeed = Mathf.Clamp(_currentMoveSpeed + (_acceleration * Time.deltaTime), 0.0f, _moveMaxSpeed);                
             }
-        }
+
+            _transform.position += _transform.up * (_isReverse ? -1.0f : 1.0f) * _currentMoveSpeed * Time.deltaTime;
+        }        
 
         public float GetNormalizeSpeed()
         {
             return _currentMoveSpeed / _moveMaxSpeed;
         }
 
+        private void StartSropMove(PlayPauseGameSignal gameSignal)
+        {
+            _isGamePlayOn = gameSignal.IsGamePlayOn;
+        }
+
         private void OnDisable()
         {
-            _signalBus.Unsubscribe<PlayPauseGameSignal>(() => _startStopGame = !_startStopGame);
+            _signalBus.TryUnsubscribe<PlayPauseGameSignal>(() => _isGamePlayOn = !_isGamePlayOn);
         }
     }
 }

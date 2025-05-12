@@ -1,11 +1,9 @@
-using UnityEngine;
-using System.Collections;
-using R3;
-using Zenject;
-using UnityEngine.UI;
 using DG.Tweening;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using Zenject;
 
 namespace TankFury
 {
@@ -73,11 +71,10 @@ namespace TankFury
             _currentWindowUI = uIwindow;
             _currentWindowUI?.Hide();
 
-            bool startStopGame = uIwindow != GameplayUIwindow;
-            if (!startStopGame)
-                _signalBus.Fire(new PlayPauseGameSignal(!startStopGame));
+            bool isGameplayPlay = uIwindow == GameplayUIwindow;
+            _signalBus.Fire(new PlayPauseGameSignal(isGameplayPlay));
 
-            _backgroundImage.enabled = startStopGame;
+            _backgroundImage.enabled = !isGameplayPlay;
 
             StartCoroutine(AddedNewWindowUI(uIwindow));
         }

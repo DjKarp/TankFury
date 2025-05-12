@@ -4,11 +4,11 @@ namespace TankFury
 {
     public class PlayPauseGameSignal
     {
-        public bool PlayPauseGame = false;
+        public bool IsGamePlayOn = false;
 
-        public PlayPauseGameSignal (bool playPauseGame)
+        public PlayPauseGameSignal (bool isGamePlayOn)
         {
-            PlayPauseGame = playPauseGame;
+            IsGamePlayOn = isGamePlayOn;
         }
     }
 }
