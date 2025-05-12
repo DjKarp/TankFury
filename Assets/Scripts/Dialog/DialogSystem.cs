@@ -22,7 +22,7 @@ namespace TankFury
         {
             if (_dialogList.Count > 0)
             {
-                _dialogUIwindow.Init(_dialogList.Pop());
+                _dialogUIwindow.ShowDialog(_dialogList.Pop());
             }
         }
     }

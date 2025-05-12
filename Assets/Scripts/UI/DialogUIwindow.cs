@@ -19,7 +19,7 @@ namespace TankFury
 
             _dialogText = gameObject.GetComponentInChildren<TextMeshPro>();
         }
-        public void Init(string text, Action newButtonAction = null)
+        public void ShowDialog(string text, Action newButtonAction = null)
         {
             _dialogText.text = text;
 

@@ -63,21 +63,33 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\EntryPoint\SceneEnterParams.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\SceneExitParams.cs" />
+    <Compile Include="Assets\Scripts\Installers\PlayerInstaller.cs" />
+    <Compile Include="Assets\Scripts\Player\GunPlayer.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameplayEntryPoint.cs" />
+    <Compile Include="Assets\Scripts\Input\Input.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObject\TankConfig.cs" />
+    <Compile Include="Assets\Scripts\Player\TankMove.cs" />
+    <Compile Include="Assets\Scripts\Installers\PlayerInstallerSO.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Level\Level.cs" />
     <Compile Include="Assets\Scripts\Dialog\DialogSystem.cs" />
     <Compile Include="Assets\Scripts\UI\SettingsUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\GameEntryPoint.cs" />
+    <Compile Include="Assets\Scripts\Player\TankController.cs" />
     <Compile Include="Assets\Scripts\Installers\UIInstaller.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenuUIwindow.cs" />
+    <Compile Include="Assets\Scripts\Player\TurretController.cs" />
     <Compile Include="Assets\Scripts\UI\DialogUIwindow.cs" />
     <Compile Include="Assets\Scripts\EntryPoint\Scenes.cs" />
     <Compile Include="Assets\Scripts\Data\CollectionPrefabUI.cs" />
     <Compile Include="Assets\Scripts\UI\EntryPoint\RootUI.cs" />
+    <Compile Include="Assets\Scripts\Player\TankViewController.cs" />
     <Compile Include="Assets\Scripts\UI\UIwindow.cs" />
     <Compile Include="Assets\Scripts\Util\CorutinesInScene.cs" />
+    <Compile Include="Assets\Scripts\Player\MachineGunController.cs" />
     <Compile Include="Assets\Scripts\UI\GameplayUIwindow.cs" />
     <Compile Include="Assets\Scripts\UI\PauseUIwindow.cs" />
     <Compile Include="Assets\Scripts\UI\Buttons\ExitButton.cs" />
+    <Compile Include="Assets\Scripts\Input\MouseAndKeyboardinput.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
