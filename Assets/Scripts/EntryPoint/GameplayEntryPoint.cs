@@ -10,11 +10,13 @@ namespace TankFury
 
         private CollectionPrefabUI _collectionPrefabUI;
         private DialogSystem _dialogSystem;
+        private SignalBus _signalBus;
 
         [Inject]
-        public void Construct(CollectionPrefabUI collectionPrefabUI)
+        public void Construct(CollectionPrefabUI collectionPrefabUI, SignalBus signalBus)
         {
             _collectionPrefabUI = collectionPrefabUI;
+            _signalBus = signalBus;
         }
 
         public void Run(RootUI rootUI, SceneEnterParams sceneEnterParams = null)
@@ -27,7 +29,7 @@ namespace TankFury
         {
             _collectionPrefabUI.Init();
             _dialogSystem = new DialogSystem();
-            _rootUI.Init(_collectionPrefabUI, _dialogSystem);
+            _rootUI.Init(_collectionPrefabUI, _dialogSystem, _signalBus);
         }
     }
 }

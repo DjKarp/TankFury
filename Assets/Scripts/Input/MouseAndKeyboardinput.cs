@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TankFury
 {
-    public class MouseAndKeyboardinput : Input
+    public class MouseAndKeyboardInput : InputHandler
     {
         private float _vetricalValue;
         private float _horizontalValue;
@@ -15,13 +15,13 @@ namespace TankFury
 
         public override void SetCursorPosition()
         {
-            CursorPosition = UnityEngine.Input.mousePosition;
+            CursorPosition = Input.mousePosition;
         }
 
         public override void SetMoveDirection()
         {
-            _vetricalValue = UnityEngine.Input.GetAxis("Vertical");
-            _horizontalValue = UnityEngine.Input.GetAxis("Horizontal");
+            _vetricalValue = Input.GetAxis("Vertical");
+            _horizontalValue = Input.GetAxis("Horizontal");
 
             MoveDirection = new Vector2(_horizontalValue, _vetricalValue);
         }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace TankFury
 {
@@ -11,10 +12,23 @@ namespace TankFury
         private float _currentMoveSpeed;
         private float _acceleration;
 
-        private Input _input;
+        private InputHandler _input;
         private Vector2 _inputDirection;
 
-        public void Init()
+        private bool _startStopGame = false;
+        private SignalBus _signalBus;
+
+
+        [Inject]
+        private void Construct(InputHandler input, SignalBus signalBus)
+        {
+            _input = input;
+
+            _signalBus = signalBus;
+            _signalBus.Subscribe<PlayPauseGameSignal>(() => _startStopGame = !_startStopGame);
+        }
+
+        public void Start()
         {
             _moveMaxSpeed = _tankConfig.MaxSpeed;
             _acceleration = _tankConfig.TimeAcceleration;
@@ -25,11 +39,15 @@ namespace TankFury
 
         private void Update()
         {
-            NewPosition();
+            if (_startStopGame)
+                NewPosition();
         }
+
 
         public void NewPosition()
         {
+            Debug.LogError("Move");
+
             _inputDirection = _input.GetMoveDirection();
 
             if (_inputDirection == Vector2.zero)
@@ -49,6 +67,11 @@ namespace TankFury
         public float GetNormalizeSpeed()
         {
             return _currentMoveSpeed / _moveMaxSpeed;
+        }
+
+        private void OnDisable()
+        {
+            _signalBus.Unsubscribe<PlayPauseGameSignal>(() => _startStopGame = !_startStopGame);
         }
     }
 }

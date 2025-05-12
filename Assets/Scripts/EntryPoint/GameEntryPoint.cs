@@ -56,12 +56,12 @@ namespace TankFury
         {
             _SceneEnterParams = sceneEnterParams == null ? _SceneEnterParams : sceneEnterParams;
 
-            yield return LoadScene(Scenes.Scene_Bootstrap);
+            //yield return LoadScene(Scenes.Scene_Bootstrap);
 
             //yield return new WaitForEndOfFrame();
             yield return new WaitForSeconds(1.0f);
 
-            yield return LoadScene(Scenes.Scene_Game);
+           // yield return LoadScene(Scenes.Scene_Game);
 
             var sceneEntryPoint = Object.FindFirstObjectByType<GameplayEntryPoint>();
             

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace TankFury
 {
@@ -8,6 +9,24 @@ namespace TankFury
         [SerializeField] private Animator _trackRightAnimator;
         private string _trackMoveParameter = "isMoveTrack";
         private string _trackSpeedAnimationsParameter = "SpeedTrack";
+
+        private InputHandler _input;
+        private Vector2 _moveDirection;
+
+        [Inject]
+        private void Construct(InputHandler input)
+        {
+            _input = input;
+        }
+
+        private void Update()
+        {
+            _moveDirection = _input.GetMoveDirection();
+            if (_moveDirection != Vector2.zero)
+                StartMoveTank();
+            else
+                StopMoveTank();
+        }
 
         public void StartMoveTank()
         {

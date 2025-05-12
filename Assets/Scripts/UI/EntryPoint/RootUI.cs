@@ -30,11 +30,15 @@ namespace TankFury
         private CollectionPrefabUI _collectionPrefabUI;
         private DialogSystem _dialogSystem;
 
+        private SignalBus _signalBus;
+        private bool _startStopGame;
 
-        public void Init(CollectionPrefabUI collectionPrefabUI, DialogSystem dialogSystem)
+
+        public void Init(CollectionPrefabUI collectionPrefabUI, DialogSystem dialogSystem, SignalBus signalBus)
         {
             _collectionPrefabUI = collectionPrefabUI;
             _dialogSystem = dialogSystem;
+            _signalBus = signalBus;
 
             for (int i = 0; i < _collectionPrefabUI.UiwindowList.Count; i++)
             {
@@ -67,8 +71,14 @@ namespace TankFury
                 _currentWindowUIList.Push(_currentWindowUI);
 
             _currentWindowUI = uIwindow;
-            _currentWindowUI?.Hide();            
-            _backgroundImage.enabled = uIwindow != GameplayUIwindow;
+            _currentWindowUI?.Hide();
+
+            bool startStopGame = uIwindow != GameplayUIwindow;
+            if (!startStopGame)
+                _signalBus.Fire(new PlayPauseGameSignal(!startStopGame));
+
+            _backgroundImage.enabled = startStopGame;
+
             StartCoroutine(AddedNewWindowUI(uIwindow));
         }
 

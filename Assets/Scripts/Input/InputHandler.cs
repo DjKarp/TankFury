@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace TankFury
 {
-    public abstract class Input : MonoBehaviour
+    public abstract class InputHandler : MonoBehaviour
     {
         protected Vector2 MoveDirection;
         protected Vector2 CursorPosition;

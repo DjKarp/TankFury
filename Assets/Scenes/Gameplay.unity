@@ -6960,6 +6960,8 @@ GameObject:
   m_Component:
   - component: {fileID: 181356093}
   - component: {fileID: 181356094}
+  - component: {fileID: 181356096}
+  - component: {fileID: 181356095}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6995,6 +6997,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da1a0519278922439b30c924ea116d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &181356095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181356092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989355a9d8d30414aa8a1b07bf5ddd3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &181356096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181356092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9746472c1a479b64490df45ddd0f9f39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tankConfig: {fileID: 11400000, guid: 2e3951eae3a007b42b4693adceeef643, type: 2}
 --- !u!1 &266475224
 GameObject:
   m_ObjectHideFlags: 0
@@ -8273,6 +8300,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c1585c4dd08424597abebf961f3766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tankMove: {fileID: 181356096}
+  _input: {fileID: 181356095}
+  _viewController: {fileID: 80276435}
 --- !u!4 &2099415683
 Transform:
   m_ObjectHideFlags: 0
@@ -8381,7 +8411,7 @@ MonoBehaviour:
   OnPostResolve:
     m_PersistentCalls:
       m_Calls: []
-  _parentNewObjectsUnderSceneContext: 0
+  _parentNewObjectsUnderSceneContext: 1
   _contractNames: []
   _parentContractNames: []
 --- !u!4 &8114675937994788985
